@@ -48,11 +48,20 @@ public class MainFragment extends Fragment {
             sierras = LiveData.getSierras();
         }
 
-        if (sierras.isEmpty()){
+        /*if (sierras.isEmpty()){
             String consulta = "select * from sierra";
             new CargarSierras(consulta).execute();
         }else{
             mRecyclerView_sierras.setVisibility(View.VISIBLE);
+            loading_sierra.setVisibility(View.GONE);
+            lanzarAdapter();
+        }*/
+
+        if (sierras.isEmpty()){
+            sierras.add(new Sierra(1,"Sierra nevada", "","https://i.imgur.com/WbtdF1s.jpg", "37.091720", "-3.161857"));
+            loading_sierra.setVisibility(View.GONE);
+            lanzarAdapter();
+        }else{
             loading_sierra.setVisibility(View.GONE);
             lanzarAdapter();
         }
